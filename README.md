@@ -216,9 +216,7 @@ Root Shell / Root Flag Access
 
 ---
 
-### 📦 Tools Used
-
-## 🛠️ Tools Used
+### 🛠️ Tools Used
 
 | Tool | Purpose |
 |------|---------|
