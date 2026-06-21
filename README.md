@@ -192,7 +192,7 @@ wscat -c ws://127.0.0.1:9229/01234567-89ab-cdef-0123-456789abcdef
 ```
 ### 🚩 Root Flag
 ```bash
-264ad8ca69f8db0f53d7e1df5a04a089
+0b8c02ea50b3bd26b66c5a1f182304f7
 ```
 
 ---
