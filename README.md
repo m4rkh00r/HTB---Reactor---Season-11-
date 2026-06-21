@@ -155,21 +155,38 @@ ae03f16d9cc263fb8e30ca26e7f3c03c
 ---
 
 ### 👑 Privilege Escalation — Node.js Inspector
+
+During post-exploitation enumeration, I reviewed running processes and identified a Node.js application running as the root user with the Inspector interface enabled.
+
 ```bash
 ps aux | grep node
 ```
 ```bash
 root  1397  /usr/bin/node --inspect=127.0.0.1:9229 /opt/uptime-monitor/worker.js
 ```
+Since the Node.js Inspector service was bound to 127.0.0.1:9229, it was only accessible locally from the target system. To access it from my attack machine, I established an SSH local port-forwarding tunnel. This forwarded my local port 9229 to the target's localhost port 9229, allowing me to interact with the Inspector service as if it were running locally on my machine.
+
 ### 🔌 Create SSH Tunnel
 ```bash
 ssh -L 9229:127.0.0.1:9229 engineer@10.129.8.62
 ```
+With the SSH tunnel established, any connection made to 127.0.0.1:9229 on my Kali machine was transparently forwarded to the Node.js Inspector service running on the target host.
+
+After forwarding the port, I verified that the Inspector service was accessible by querying the debugging endpoint:
 
 ### 🌐 Obtain WebSocket Endpoint
 ```bash
 curl http://127.0.0.1:9229/json
 ```
+The response revealed an active WebSocket debugger endpoint associated with the root-owned process:
+
+```json
+{
+  "title": "/opt/uptime-monitor/worker.js",
+  "webSocketDebuggerUrl": "ws://127.0.0.1:9229/<UUID>"
+}
+```
+
 ### 📦 Install wscat
 ```bash
 npm install -g wscat
