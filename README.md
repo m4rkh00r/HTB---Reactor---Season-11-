@@ -14,10 +14,14 @@ A complete walkthrough for the Reactor machine on Hack The Box, demonstrating re
 
 ## 🧭 Table of Contents
 
-- [Reconnaissance](#-reconnaissance)
-- [Initial Access](#-initial-access)
-- [Database Enumeration](#-database-enumeration)
-- [SSH Access](#-ssh-access)
-- [Privilege Escalation](#-privilege-escalation)
-
+Reconnaissance
+Initial Access — CVE-2025-66478
+Database Enumeration
+Cracking the Hash
+SSH Access
+Privilege Escalation — Node.js Inspector
+Attack Chain Summary
+Tools Used
+Legal Disclaimer
+Acknowledgments
 
